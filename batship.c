@@ -45,10 +45,10 @@ int main ()
 		fclose(fp);
 		GetMove(playerMoves, batshipboard,batshiploc);
 		PlayGame = Playagain(batshipboard);
-		}
-		while(PlayGame == true);
-		
-		return 0;
+	}
+	while(PlayGame == true);
+	
+	return 0;
 }
 
 
@@ -160,7 +160,7 @@ Printboard(batshipboard);
 		}
 		valid = false;		
 	}
-while( Done == false);
+	while( Done == false);
 }
 
 
@@ -176,6 +176,7 @@ for(int row = 0; row< SIZE; row++){
 			{
 				batshipboard[row][col] = 'X';
 				*ptrHits = ( 1 + *ptrHits);
+				//Put E for empty space in case the same position is called again. With the E in its place the X will not be counted twice.
 				shiplocation[row][col] = 'E';
 			}
 			else if(shiplocation[row][col] == ' ')
@@ -185,7 +186,6 @@ for(int row = 0; row< SIZE; row++){
 }
 	*ptrguesses= ( 1 + *ptrguesses);
 	Printboard(batshipboard);
-
 }
 
 bool GameOver(int shiphit, int tries)
@@ -203,10 +203,7 @@ bool GameOver(int shiphit, int tries)
 	}
 	
 	else
-	{ 
-		return false; 
-	}
-	
+	{ return false;	}
 }
 
 bool Playagain(char batshipboard[SIZE][SIZE])
