@@ -69,7 +69,8 @@ void Printboard(char batshipboard[][SIZE])
 	{
 		printf("\n%d ", num);
 		for(int col = 0; col < SIZE; col++)
-		{	if(row==9)
+		{	//This is for the last row's formatting because the number 10 takes up a space where the other rows do not, so there needs to be a space after the character not before the character.
+			if(row==9)
 			{printf("%c ", batshipboard[row][col]);}
 			else
 			{printf(" %c", batshipboard[row][col]);}
